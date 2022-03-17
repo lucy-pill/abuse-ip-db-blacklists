@@ -9,13 +9,11 @@ querystring = {
 }
 
 headers = {
-    'Accept': 'application/json',
+    'Accept': 'text/plain',
     'Key': '8bcec6669b74ac01e487c5ce321ac376e3280ee2c2d80adcbf2f1b37a39b1233193372abdd2c23f7'
 }
 
 response = requests.request(method='GET', url=url, headers=headers, params=querystring)
 
-decodedResponse = json.loads(response.text)
-
-with open("C:\\Users\\KSCLOUD\\Desktop\\BOX\\abuse-ip-db-blacklist\\result.json", 'w') as outfile:
-    json.dump(decodedResponse, outfile, sort_keys=True, indent=4)
+with open("C:\\Users\\KSCLOUD\\Desktop\\BOX\\abuse-ip-db-blacklist\\result.txt", 'w') as outfile:
+  outfile.write(response.text)
